@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slider-container">
+        <img id="slider" src="https://images.pexels.com/photos/1165991/pexels-photo-1165991.jpeg?cs=srgb&dl=pexels-jplenio-1165991.jpg&fm=jpg" alt="Image Slider">
+        <div class="buttons">
+            <button onclick="prevImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "https://images.pexels.com/photos/1165991/pexels-photo-1165991.jpeg?cs=srgb&dl=pexels-jplenio-1165991.jpg&fm=jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-s/09/22/b7/ee/inn-at-pleasant-lake.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9LU_xFSXkQxI39YK0WKE6dn8gUto5oNu-Yg&s"
+        ];
+        let currentIndex = 0;
+        
+        function showImage(index) {
+            document.getElementById("slider").src = images[index];
+        }
+        
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        }
+        
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        }
+    </script>
+</body>
+</html>
